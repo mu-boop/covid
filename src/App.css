@@ -1,38 +1,80 @@
-.App {
-  text-align: center;
+@keyframes menu {
+    from { transform: rotate(280deg);}
+    to { transform: rotate(0deg);}
+}
+@keyframes btn {
+    from{background-color: rgb(252,1,1);}
+    to{background-color:rgba(1,93,233,1) ;}
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.navbar-custom{
+    background: rgb(252,1,1);
+    background: linear-gradient(293deg, rgba(252,1,1,1) 0%, rgba(1,93,233,1) 100%);
+    height: 5rem;
+    border-bottom: 2px solid black;
+    align-items: center !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.border-class{
+    border: 2px solid white;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.border-class:hover{
+    border-color:rgb(252,1,1) ;
+    animation-name: btn;
+    animation-duration: 1s;
+    background-color: rgb(131, 131, 131);
+    box-shadow: 1px 1px 10px rgb(36, 36, 36);
 }
 
-.App-link {
-  color: #61dafb;
+.font{
+    font-size: 22px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.menu{
+    float: right;
 }
+
+.menu-items{
+    display: none;
+}
+
+.show-items{
+       width: 25%;
+       float: right;
+       background: rgb(252,1,1);
+       background: linear-gradient(293deg, rgba(252,1,1,1) 0%, rgba(1,93,233,1) 100%);
+       align-items: center;
+       justify-content: center; 
+}
+
+.show-items li{
+    list-style: none;
+    padding: .5rem !important;
+    animation-name: menu;
+    animation-duration: .5s;
+    position: relative;
+}
+.show-items a{
+    color: rgb(211, 211, 211) !important;
+    font-size: 28px;
+    font-weight: bold;
+}
+.show-items a:hover{
+    text-decoration: none;
+    
+ 
+}
+
+.city-btn{
+    border: 2px solid white !important;
+    color: white;
+   
+}
+
+.city-btn:hover{
+    background-color:rgba(1,93,233,1) ;
+    color: white;
+    box-shadow: 1px 1px 10px rgb(1, 25, 61);
+}
+
