@@ -13,6 +13,9 @@
     height: 5rem;
     border-bottom: 2px solid black;
     align-items: center !important;
+    position: fixed;
+    width: 100%;
+    z-index: 9;
 }
 
 .border-class{
@@ -41,40 +44,60 @@
 
 .show-items{
        width: 25%;
-       float: right;
        background: rgb(252,1,1);
        background: linear-gradient(293deg, rgba(252,1,1,1) 0%, rgba(1,93,233,1) 100%);
        align-items: center;
-       justify-content: center; 
+       height: 89vh;
+       overflow-y: auto;
+       position: fixed;
+       right: 0rem;
+       z-index: 9;
+       top: 5rem;
 }
 
-.show-items li{
-    list-style: none;
-    padding: .5rem !important;
+.menu-list{
+    border-bottom: 1px solid white;
     animation-name: menu;
     animation-duration: .5s;
-    position: relative;
 }
-.show-items a{
-    color: rgb(211, 211, 211) !important;
-    font-size: 28px;
-    font-weight: bold;
+.menu-list:hover{
+    border-bottom: 2px solid white !important;
+    cursor: pointer;
 }
-.show-items a:hover{
-    text-decoration: none;
-    
- 
-}
-
 .city-btn{
     border: 2px solid white !important;
     color: white;
-   
 }
 
 .city-btn:hover{
     background-color:rgba(1,93,233,1) ;
     color: white;
     box-shadow: 1px 1px 10px rgb(1, 25, 61);
+}
+
+.list-container{
+    background-color: whitesmoke;
+    padding-top: 6rem;
+    padding-left: 5rem;
+}
+
+.list-container div{
+    background: rgb(252,1,1);
+       background: linear-gradient(293deg, rgba(252,1,1,1) 0%, rgba(1,93,233,1) 100%);
+    /* background-color: white; */
+    box-shadow: 1px 1px 20px rgb(180, 180, 180);
+    border-radius: 10px;
+}
+.list-container div:hover{
+    box-shadow: 1px 1px 20px rgb(75, 75, 75);
+
+}
+.list-container h1{
+    color: white;
+} 
+.list-container td{
+    font-size: 20px !important;
+    padding: 1rem;
+    color: white ;
 }
 
