@@ -30,33 +30,7 @@ axios.get('https://api.covidtracking.com/v1/states/current.json')
     console.log(main);
     state.user = main;
     let a = state.alpha2Code;
-    console.log(a)
-// const Blogs = () => {
-
-//   const url = `https://api.covidtracking.com/v1/states/current.json`;
-//   const dispatch = useDispatch();
-//   const [mughees, setMughees] = useState();
-//   const [loading, setLoading] = useState(true);
-
-//   useEffect(() => {
-//     axios
-//       .get(url)
-//       .then((response) => {
-//         dispatch(setData(response.data));
-//         setMughees(response.data);
-//         setLoading(false);
-//       })
-//       .catch((error) => {
-//         console.log(error);
-//       });
-//   },[]);
-// }
-
-// Blogs()
-for(var i = 0 ;i < state?.user?.data?.length ; i++){
-    
-    console.log(count)
-}
+    console.log(a)  
 console.log(count)
 
 

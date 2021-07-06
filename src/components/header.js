@@ -5,9 +5,8 @@ import {useEffect , useState} from 'react';
 function Header(){
     const [alpha , setAlpha] = useState();
     const [alphaCode , setAlphaCode] = useState()
-    const [countryName , setCountryName] = useState()
-    const [countr , setCountr] = useState()
-    const [ count , setCount] = useState()
+    const [ count , setCount] = useState();
+    const [div , setDiv] = useState(false)
 
     const state = useSelector( state => {
         return state
@@ -22,7 +21,6 @@ function Header(){
           .then(function (response) {
             // handle success
             setAlpha(response)
-            setCountr(response.data)
               })
           .catch(function (error) {
             // handle error
@@ -35,23 +33,21 @@ function Header(){
         if(a.classList.contains('show-items')){
             a.classList.remove('show-items');
             a.classList.add('menu-items')
+            setDiv(false)
         }else{
             a.classList.remove('menu-items');
             a.classList.add('show-items')
         }
     }
     console.log(alphaCode);
-    console.log(countryName);
     state.alpha2Code = alphaCode;
-    state.countryName = countryName;
     state.count = count;
     console.log(state);
-
     return(
         <div className='header' >
             <nav className='navbar-custom d-flex '>
-         <div className='col-md-5 text-light'>
-          CreatorsForYou
+         <div className='col-md-5 logo'>
+          COVID-APP
          </div>
             <div className='col-md-7 d-flex'>
             <div className='col-md-8'></div>
@@ -61,21 +57,36 @@ function Header(){
       <div className='menu-items mughees'>
             <div>
                 {state?.user?.data?.map((v,i)=>{
+                    for(var j = 0 ; j < state.country.data.length ; j++){
+                        if(state.country.data[j].alpha2Code === v.state){
+                            v.state = state?.country?.data[j]?.name
+                        }
+                    }
                     return (
                         <div onClick={(e)=>{
-                            let a = e.target.id;
-                            let b = e.target.innerHTML;
+                            var a = e.target.id;
+                            var b = e.target.innerHTML;
                             setAlphaCode(a);
-                            setCountryName(b)
                             setCount(i)
-                        }} className='menu-list p-2 text-light' id={v.state} key={i}>{v.state}</div>
+                            setDiv(true)
+                        }} className='menu-list p-2' id={v.state} key={i}>{v.state}</div>
                     )
                 })}
             </div>
             </div>
-            <div className='list-container'>
+            {!div?<div className=' precautions'>
+                <h1><span className='purple'>M</span>ake <span className='purple'>W</span>earing a <span className='purple'>M</span>ask a <span className='purple'>N</span>ormal <span className='purple'>P</span>art of <span className='purple'>B</span>eing <span className='purple'>A</span>round <span className='purple'>O</span>ther <span className='purple'>P</span>eople.</h1>
+                <h3>Here are the basics of how to wear a mask:</h3>
+                <ul>
+                    <li>Clean your hands before you put your mask on, as well as before and after you take it off, and after you touch it at any time.</li>
+                    <li>Make sure it covers both your nose, mouth and chin. </li>
+                    <li>When you take off a mask, store it in a clean plastic bag, and every day either wash it if it’s a fabric mask, or dispose of a medical mask in a trash bin.</li>
+                    <li>Don’t use masks with valves.</li>
+                </ul>
+            </div>:null}
+            {div?<div className='list-container div'>
                 <div className='col-md-8 mt-2'>
-                       <h1 className='p-4 text-center'>{state?.user?.data[count]?.state}</h1>
+                       <h1 className='pt-4 text-center city-name'>{state?.user?.data[count]?.state}</h1>
                    <table className='w-100'>
                        <tr>
                            <td className='col-md-6'>Date</td>
@@ -107,9 +118,10 @@ function Header(){
                        </tr>
                    </table>
                    </div>
-               )
+               
            
-           </div>
+           </div>:null}
+           <div><img className='covid-img' src='https://www.elsevier.com/__data/assets/image/0006/974328/coronavirus-image-iStock-628925532-1200px.jpg' /></div>
         </div>
     )
 }

@@ -1,25 +1,39 @@
 @keyframes menu {
-    from { transform: rotate(280deg);}
+    from { transform: rotate(180deg);}
     to { transform: rotate(0deg);}
 }
-@keyframes btn {
-    from{background-color: rgb(252,1,1);}
-    to{background-color:rgba(1,93,233,1) ;}
+
+@keyframes menuFromRight {
+    from {right: -25%;}
+    to {right: 0rem;}
 }
 
+@keyframes div {
+    from {opacity: .5;}
+    to {opacity: 1;}
+}
+
+
+body{
+    background-color: white;
+}
 .navbar-custom{
-    background: rgb(252,1,1);
-    background: linear-gradient(293deg, rgba(252,1,1,1) 0%, rgba(1,93,233,1) 100%);
+    background: rgb(121,21,121);
+background: linear-gradient(322deg, rgb(182, 41, 182) 0%, rgba(226,62,226,1) 88%);
     height: 5rem;
-    border-bottom: 2px solid black;
     align-items: center !important;
     position: fixed;
     width: 100%;
     z-index: 9;
 }
 
+.logo{
+    padding-left: 4rem;
+    font-weight: bold;
+    font-size: 30px;
+}
 .border-class{
-    border: 2px solid white;
+    border: 2px solid black;
 }
 
 .border-class:hover{
@@ -44,60 +58,96 @@
 
 .show-items{
        width: 25%;
-       background: rgb(252,1,1);
-       background: linear-gradient(293deg, rgba(252,1,1,1) 0%, rgba(1,93,233,1) 100%);
+       /* background: rgb(121,21,121);
+       background: linear-gradient(322deg, rgb(182, 41, 182) 0%, rgba(226,62,226,1) 88%); */
        align-items: center;
-       height: 89vh;
+       /* background-color: whitesmoke; */
+           height: 89vh;
        overflow-y: auto;
        position: fixed;
        right: 0rem;
        z-index: 9;
        top: 5rem;
+       animation: menuFromRight .3s;
+       border-left: 1px solid rgb(121,21,121);
 }
 
 .menu-list{
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid rgb(121,21,121);
     animation-name: menu;
-    animation-duration: .5s;
+    animation-duration: .3s;
+    color: rgb(121,21,121);
+    font-weight: bold;
 }
 .menu-list:hover{
-    border-bottom: 2px solid white !important;
+    border-bottom: 2px solid rgb(121,21,121) !important;
     cursor: pointer;
 }
 .city-btn{
-    border: 2px solid white !important;
-    color: white;
+    border: 2px solid black !important;
+    color: black;
 }
 
 .city-btn:hover{
-    background-color:rgba(1,93,233,1) ;
-    color: white;
+    background-color:white ;
+    color: rgb(121,21,121);
+    font-weight: bold;
     box-shadow: 1px 1px 10px rgb(1, 25, 61);
 }
 
 .list-container{
-    background-color: whitesmoke;
     padding-top: 6rem;
     padding-left: 5rem;
 }
 
 .list-container div{
-    background: rgb(252,1,1);
-       background: linear-gradient(293deg, rgba(252,1,1,1) 0%, rgba(1,93,233,1) 100%);
-    /* background-color: white; */
-    box-shadow: 1px 1px 20px rgb(180, 180, 180);
     border-radius: 10px;
+    box-shadow: 1px 1px 20px rgb(180, 180, 180);
 }
 .list-container div:hover{
-    box-shadow: 1px 1px 20px rgb(75, 75, 75);
+    box-shadow: 1px 1px 20px rgb(180, 180, 180);
 
 }
 .list-container h1{
-    color: white;
+    color: rgb(121,21,121);
 } 
 .list-container td{
     font-size: 20px !important;
     padding: 1rem;
-    color: white ;
+    color: rgb(121,21,121) ;
+    font-weight: bold;
+}
+
+
+.div{
+    animation: div 1s ;
+}
+
+.precautions{
+    padding-top: 10rem;
+    width: 70%;
+    margin-left: 2%;
+}
+
+.purple  {
+    color: rgb(121, 21, 121);
+}
+
+.precautions li{
+    font-size: 22px;
+    color: rgb(121,21,121)  ;
+}
+
+.covid-img{
+    position: absolute;
+    top: 5rem;
+    z-index: -4;
+    opacity: .08;
+    height: 87.5vh;
+    width: 100%;
+}
+
+.city-name{
+    font-size: 42px;
 }
 
